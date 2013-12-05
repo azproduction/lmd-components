@@ -1,0 +1,17 @@
+{
+    "name": "Сборка для /",
+    "root": "../",
+    "output": "www/_index.js",
+    "modules": {
+        "components/<%= dir[0] %>": "components/**/index.js",
+        "jquery": "@jQuery",
+        "pages/index": "pages/index/index.js"
+    },
+    "main": "pages/index",
+
+    "depends": "*.lmd.json",
+    "ie": false,
+    "shortcuts": true,
+
+    "warn": false
+}

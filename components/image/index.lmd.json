@@ -1,0 +1,7 @@
+{
+    "name": "button",
+    "root": "../../bower_components",
+    "modules": {
+        "jquery": "jquery/jquery.js"
+    }
+}

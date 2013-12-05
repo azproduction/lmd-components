@@ -1,0 +1,11 @@
+{
+    "name": "bootstrap",
+    "root": "../../bower_components",
+    "modules": {
+        "jquery": "jquery/jquery.js"
+    },
+
+    "plugins": {
+        "names": "../lmd_plugins/require_names.js"
+    }
+}

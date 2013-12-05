@@ -1,0 +1,13 @@
+{
+    "name": "lmd-component-scheme",
+    "version": "0.0.0",
+    "dependencies": {
+        "lmd": "*",
+        "csso": "*",
+        "grunt": "*",
+        "grunt-lmd": "*",
+        "grunt-lib-contrib": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-concurrent": "*"
+    }
+}
