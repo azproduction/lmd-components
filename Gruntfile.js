@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+    var scripts = ['Gruntfile.js', 'components/**/*.js', 'pages/**/*.js'];
+    var styles = ['components/**/*.css', 'pages/**/*.css'];
 
     // Project configuration.
     grunt.initConfig({
@@ -20,6 +22,29 @@ module.exports = function(grunt) {
             index: 'index'
         },
 
+        jscs: {
+            options: {
+                config: '.jscs.json'
+            },
+            all: scripts
+        },
+
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            all: scripts
+        },
+
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            all: {
+                src: styles
+            }
+        },
+
         watch: {
             options: {
                 // Start a live reload server on the default port 35729
@@ -27,32 +52,30 @@ module.exports = function(grunt) {
                 livereload: true
             },
             js: {
-                files: ['components/**/*.js', 'pages/**/*.js'],
+                files: scripts,
                 tasks: ['js']
             },
             css: {
-                files: ['components/**/*.css', 'pages/**/*.css'],
+                files: styles,
                 tasks: ['css']
             }
         },
 
         concurrent: {
-            all: ['css', 'js']
+            build: ['css', 'js']
         }
     });
 
     // These plugins provide necessary tasks
     grunt.loadTasks('grunt');
-    grunt.loadNpmTasks('grunt-lmd');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-concurrent');
+    require('load-grunt-tasks')(grunt);
 
     // Default task
-    grunt.registerTask('default', ['concurrent:all', 'watch']);
-    grunt.registerTask('css', ['lmdCss:index']);
-    grunt.registerTask('js', ['lmd:index']);
+    grunt.registerTask('default', ['concurrent:build', 'watch']);
+    grunt.registerTask('lint', ['csslint:all', 'jscs:all', 'jshint:all']);
+    grunt.registerTask('css', ['csslint:all', 'lmdCss:index']);
+    grunt.registerTask('js', ['jscs:all', 'jshint:all', 'lmd:index']);
 
     // Release task
-    grunt.registerTask('release', ['lmd:release', 'lmdCss:index']);
-
+    grunt.registerTask('release', ['lint', 'lmd:release', 'lmdCss:index']);
 };

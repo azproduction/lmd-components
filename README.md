@@ -1,3 +1,8 @@
-# How to use lmd with components
+# Declarative lmd components
 
-One ove the variants
+## Run example
+
+```
+$ npm i              | $ http-server ./www     | $ open http://localhost:8080/
+$ grunt              |                         |
+```

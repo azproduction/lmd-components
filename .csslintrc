@@ -1,0 +1,9 @@
+{
+    "important": true,
+    "universal-selector": true,
+    "zero-units": true,
+    "overqualified-elements": true,
+    "universal-selector": true,
+    "non-link-hover": true,
+    "empty-rules": true
+}

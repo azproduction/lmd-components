@@ -6,8 +6,11 @@
         "csso": "*",
         "grunt": "*",
         "grunt-lmd": "*",
-        "grunt-lib-contrib": "*",
         "grunt-contrib-watch": "*",
-        "grunt-concurrent": "*"
+        "grunt-concurrent": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-jscs-checker": "*",
+        "load-grunt-tasks": "*",
+        "grunt-contrib-csslint": "*"
     }
 }

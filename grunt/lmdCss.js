@@ -9,7 +9,6 @@ module.exports = function (grunt) {
         csso = require('csso'),
         path = require('path'),
         fs = require('fs'),
-        helper = require('grunt-lib-contrib').init(grunt),
         getModuleFileByShortName = require('lmd/lib/lmd_common').getModuleFileByShortName;
 
     grunt.registerMultiTask('lmdCss', 'Collects css files from lmd modules.', function () {
@@ -21,8 +20,7 @@ module.exports = function (grunt) {
         // Default options
         var options = this.options({
             restructure: true,
-            banner: '',
-            report: false
+            banner: ''
         });
 
         // Configure banner
@@ -83,9 +81,6 @@ module.exports = function (grunt) {
             // Write out
             grunt.file.write(cssOutput, minimizedCss);
             grunt.log.writeln('File ' + String(cssOutput).green + ' created.');
-            if (options.report) {
-                helper.minMaxInfo(minimizedCss, fullCss, options.report);
-            }
         }
     });
 
